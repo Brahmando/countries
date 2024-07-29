@@ -11,10 +11,12 @@ export default function Country() {
   
   // const countryName = new URLSearchParams(location.search).get('name');
   const params = useParams();
-  console.log(params)
+  console.log(params.country)
 
   const states=useLocation()
+    console.log(states.state)
     console.log(states)
+    
   
   const countryName= params.country;
   const [countryData, setCountryData] = useState(null);
@@ -22,7 +24,7 @@ export default function Country() {
   // const [borders,setBorders] = useState(null);
 
   // console.log(countryData?.borders)
-
+  console.log(params.country)
 
   function updateCountry(data){
     setCountryData({
@@ -59,6 +61,9 @@ export default function Country() {
     })).then((borders)=> setCountryData((prevState)=> ({...prevState, borders})))
   }
   
+  console.log(params.country)
+
+
 
   useEffect(() => {
 
@@ -66,7 +71,7 @@ export default function Country() {
       fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       .then((res) => res.json())
       .then(([data]) => {
-        // console.log(data)
+        console.log(data)
         // console.log(Object.values(data.currencies).map((currency) => currency.name))
 
         // console.log('hi')
@@ -80,7 +85,10 @@ export default function Country() {
         setNotFound(true)
       })
     }else{
-      data=states.state;
+      console.log(params.country)
+      console.log(states.state)
+      const data=states.state;
+      console.log(params.country)
 
       updateCountry(data)
     }
