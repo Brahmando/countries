@@ -11,7 +11,7 @@ export default function Country() {
   
   // const countryName = new URLSearchParams(location.search).get('name');
   const params = useParams();
-  // console.log(params)
+  console.log(params)
 
   const states=useLocation()
     console.log(states)

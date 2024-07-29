@@ -18,6 +18,7 @@ export default function CountryContainer({ filtered, region }) {
         .then((res) => res.json())
         .then((data) => {
             setCountriesData(data)
+            console.log(data);
             
           })
 
